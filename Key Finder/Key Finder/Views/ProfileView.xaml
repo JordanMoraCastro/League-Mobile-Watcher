@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="League_Watcher.Views.ProfileView"
+            Appearing="ContentPage_Appearing"
+             >
+    <ContentPage.Content>
+        <StackLayout >
+            
+            <ListView RowHeight="100" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" x:Name="lsvMatch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid  Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15" />
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="25" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    
+                                    <ColumnDefinition Width="35" />
+
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+
+                                </Grid.ColumnDefinitions>
+
+                                <Image  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ChampionImage}" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" />
+
+
+                                <Label FontAttributes="Bold"  HorizontalOptions="Center" Grid.ColumnSpan="7" Text="{Binding info.gameMode}" Grid.Column="3" />
+                                <Label  HorizontalOptions="Center"  FontAttributes="Bold" Text="{Binding win}" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" />
+
+
+                                <Label  HorizontalOptions="Center"  FontAttributes="Bold" Text="{Binding KDA}" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="5"/>
+                                <Label  HorizontalOptions="Center"  FontAttributes="Bold" Text="{Binding cs}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+
+                                <Image  HorizontalOptions="Fill" VerticalOptions="Fill"  Source="{Binding item0}" Grid.Row="1" Grid.Column="4" />
+                                <Image HorizontalOptions="Fill" VerticalOptions="Fill"  Source="{Binding item1}" Grid.Row="1" Grid.Column="5" />
+                                <Image HorizontalOptions="Fill" VerticalOptions="Fill"  Source="{Binding item2}" Grid.Row="1" Grid.Column="6" />
+                                <Image HorizontalOptions="Fill" VerticalOptions="Fill"  Source="{Binding item3}" Grid.Row="1" Grid.Column="7" />
+                                <Image HorizontalOptions="Fill" VerticalOptions="Fill"  Source="{Binding item4}" Grid.Row="1" Grid.Column="8" />
+
+
+                                <Image HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Source="{Binding SummonerSpell1}"  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" />
+                                <Image HorizontalOptions="FillAndExpand" VerticalOptions="Fill"  Source="{Binding SummonerSpell2}" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="1"/>
+                         
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

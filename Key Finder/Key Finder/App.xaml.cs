@@ -10,7 +10,9 @@ namespace Key_Finder
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+
+            MainPage = new NavigationPage(new MainPage()); //Navegacion en Pila
         }
 
         protected override void OnStart()

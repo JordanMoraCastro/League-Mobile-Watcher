@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Key_Finder.MainPage">
-
+             x:Class="Key_Finder.MainPage"
+             NavigationPage.HasNavigationBar="False">
+    
+             
 
 
     <StackLayout>
@@ -12,8 +14,8 @@
         <Frame Margin="10"
        BorderColor="Black"
        CornerRadius="100"
-       HeightRequest="50"
-       WidthRequest="50"
+       HeightRequest="25"
+       WidthRequest="25"
        IsClippedToBounds="True"
        HorizontalOptions="Center"
        VerticalOptions="Center">
@@ -31,7 +33,7 @@
                Padding="0,0,0,15"
        HorizontalTextAlignment="Center" />
 
-        <SearchBar HorizontalTextAlignment="Center" x:Name="searchBarSummoner" Placeholder="Ingrese el nombre del invocador"
+        <SearchBar  HorizontalTextAlignment="Center" x:Name="searchBarSummoner" Placeholder="Ingrese el nombre del invocador"
            SearchButtonPressed="SearchBar_SearchButtonPressed" />
 
 
@@ -65,15 +67,16 @@
                 </Frame.Margin>
 
                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
-                    <Frame Margin="15"
+                    <Frame Margin="0,15,0,0"
                            BorderColor="Black"
                            CornerRadius="100"
                            HeightRequest="100"
-                           WidthRequest="100"
+                           WidthRequest="95"
                            IsClippedToBounds="True"
                            HorizontalOptions="Center"
-                           VerticalOptions="Center">
-                        <Image Source="https://ddragon.leagueoflegends.com/cdn/12.2.1/img/profileicon/743.png"
+                           VerticalOptions="Center"
+                           >
+                        <Image x:Name="imgProfile" Source="https://ddragon.leagueoflegends.com/cdn/12.2.1/img/profileicon/743.png"
                              Aspect="AspectFill"
                              Margin="-20"
                              HeightRequest="100"
@@ -81,11 +84,15 @@
                     </Frame>
 
 
-                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15">
-                        <Label HorizontalOptions="Center" TextColor="#222" FontSize = "25" Text="Schweitzer"/>
-                        <Label HorizontalOptions="Center" TextColor="#222" Text="Región: LAN Nivel: 232 Role: Jungla" FontSize = "16"/>
-                        <Label HorizontalOptions="Center" TextColor="#222" Text="División: Diamante Solo Q" FontSize = "16"/>
-                        <Button IsEnabled="True" Margin="0,25,0,0" Text="Ver información" TextColor="White" BackgroundColor="#EF9D37"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="10">
+                        <Label x:Name="lbSummonerName" HorizontalOptions="Center" TextColor="#222" FontSize = "25" Text=""/>
+                        <Label x:Name="lbDescription" HorizontalOptions="Center" TextColor="#222" Text="Región: LAN Nivel: 232 Role: Jungla" FontSize = "16"/>
+                        <Image x:Name="imgRanked" 
+                               HeightRequest="50">
+                            
+                        </Image>
+ 
+                        <Button IsEnabled="True" Margin="0,25,0,0" Text="Ver información" TextColor="White" BackgroundColor="#EF9D37" Clicked="Button_Clicked"/>
                     </StackLayout>
 
                 </StackLayout>
@@ -99,6 +106,9 @@
                    Padding="0,0,0,15"
                    HorizontalTextAlignment="Center" />
         </StackLayout>
+
+        <ActivityIndicator x:Name="activeIndicator" IsRunning="False"
+                   VerticalOptions="CenterAndExpand" />
 
     </StackLayout>
 
