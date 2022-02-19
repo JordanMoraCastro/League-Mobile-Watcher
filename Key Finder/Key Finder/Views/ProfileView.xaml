@@ -65,7 +65,8 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-
+            <ActivityIndicator x:Name="activeIndicator" IsRunning="False"
+                   VerticalOptions="CenterAndExpand" />
 
         </StackLayout>
     </ContentPage.Content>

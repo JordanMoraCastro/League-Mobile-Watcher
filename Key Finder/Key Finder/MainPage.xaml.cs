@@ -11,25 +11,47 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using FireSharp.Config;
+using FireSharp.Response;
+using FireSharp.Interfaces;
+using FireSharp;
+
 
 namespace Key_Finder
 {
     public partial class MainPage : ContentPage
     {
-        SummonerService summonerService = new SummonerService();
-        MatchService matchService = new MatchService();
+        SummonerService summonerService;
+        MatchService matchService;
+
         public List<string> MatchList { get; set; }
-        static string Puiid;
 
         string SummonerId;
+
+
+       
+
 
         public MainPage()
         {
             InitializeComponent();
+
+           summonerService = new SummonerService();
+           matchService = new MatchService();
+
         }
+
+
 
         private async void SearchBar_SearchButtonPressed(object sender, EventArgs e)
         {
+
+            if (!rdLAN.IsChecked && !rdLAS.IsChecked && !rdNA.IsChecked)
+            {
+                await DisplayAlert("League Watcher", "Por favor seleccione una región", "Aceptar");
+                return;
+            }
+        
             CardContainer.IsVisible = false;
             activeIndicator.IsRunning = true;
 
@@ -59,7 +81,6 @@ namespace Key_Finder
                     SummonerId = summoner.id;
                     CardContainer.IsVisible = true;
 
-
                     lbSummonerName.Text = summoner.name;
                     lbDescription.Text = $"Región: LAN Nivel: {summoner.summonerLevel}";
 
@@ -72,7 +93,8 @@ namespace Key_Finder
                                    orderby d.wins descending
                                    select d;
 
-                        switch(rank.FirstOrDefault().tier.ToString()){
+                        switch (rank.FirstOrDefault().tier.ToString())
+                        {
                             case "IRON":
                                 {
                                     imgRanked.Source = "Emblem_Iron.png";
@@ -81,7 +103,7 @@ namespace Key_Finder
 
                             case "GOLD":
                                 {
-                                    imgRanked.Source= "Emblem_Gold.png";
+                                    imgRanked.Source = "Emblem_Gold.png";
                                     break;
                                 }
                             case "SILVER":
@@ -120,7 +142,7 @@ namespace Key_Finder
                                     break;
                                 }
                         }
-                           
+
                     }
                     else
                     {
@@ -134,6 +156,7 @@ namespace Key_Finder
 
                     MessageContainer.IsVisible = false;
 
+
                 }
             }
 
@@ -143,6 +166,7 @@ namespace Key_Finder
 
         async void Button_Clicked(object sender, EventArgs e)
         {
+
             await Navigation.PushAsync(new ProfileView(MatchList, SummonerId));
         }
     }

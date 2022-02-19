@@ -44,8 +44,10 @@ namespace League_Watcher.Views
 
         public async void GetMatch()
         {
+            lsvMatch.IsVisible = false;
+            activeIndicator.IsRunning = true;
 
-            foreach(var matchinfo in MatchList)
+            foreach (var matchinfo in MatchList)
             {
                 string respuesta = await matchService.GetMatchInformation(matchinfo);
 
@@ -106,7 +108,7 @@ namespace League_Watcher.Views
                 var summonerSpell = from d in matchMetadata.info.participants
                          where d.summonerId == SummonerId
                          select d;
-
+                
 
 
 
@@ -141,6 +143,9 @@ namespace League_Watcher.Views
 
          
             lsvMatch.ItemsSource = mathObjetList;
+
+            lsvMatch.IsVisible = true;
+            activeIndicator.IsRunning = false;
 
 
         }
