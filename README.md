@@ -8,7 +8,7 @@ League Watcher es una nueva aplicacion para android que utiliza la API oficial d
 
 - Desarrollada en Xamarin Forms
 - Utilizacion de Google FireBase
-- ✨ No usa Darirus con Ignite en Top ✨
+- ✨ No usa Darius con Ignite en Top ✨
 
 ## Novedades
 
