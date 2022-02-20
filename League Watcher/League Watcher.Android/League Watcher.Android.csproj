@@ -101,7 +101,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Key Finder\League Watcher.csproj">
+    <ProjectReference Include="..\League Watcher\League Watcher.csproj">
       <Project>{9019B61B-28CB-49A7-8E83-7FC6AE29DB47}</Project>
       <Name>League Watcher</Name>
     </ProjectReference>
