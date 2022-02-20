@@ -17,3 +17,7 @@ League Watcher es una nueva aplicacion para android que utiliza la API oficial d
 - Ver en tiempo real datos de la partida en curso
 - Informacion acerca de los aliados y enemigos( Nivel, Elo, Puntos de Maestria, Rachas)
 - Basada en la API de Riot Oficial
+
+##Imagenes
+
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
