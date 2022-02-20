@@ -20,5 +20,5 @@ League Watcher es una nueva aplicacion para android que utiliza la API oficial d
 
 ## Imagenes
 
-![This is an image](League-Mobile-Watcher/League Watcher/League Watcher.Android/gold_ii.png)
+![This is an image](/Assets/Screenshot_1.jpg)
 
